@@ -1,0 +1,4 @@
+split,accounts,transactions,positive_accounts,positive_rate,sar_transactions,alert_patterns,fan_in_members,fan_out_members,cycle_members,start_date,end_date
+train,4000,38206,232,0.058,212,30,79,85,68,2017-01-01,2017-06-29
+validation,4000,37790,211,0.05275,191,30,73,74,64,2017-01-01,2017-06-29
+test,4000,38301,232,0.058,212,30,80,73,79,2017-01-01,2017-06-29
