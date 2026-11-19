@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="646" viewBox="0 0 1200 646">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#162235} .title{font-size:28px;font-weight:700} .sub{font-size:16px;fill:#526071} .model{font-size:18px;font-weight:600} .tick{font-size:14px;fill:#697586} .value{font-size:17px;font-weight:700} .note{font-size:13px;fill:#697586}</style>
+<text class="title" x="42" y="49">Recall@Top-10% — test set</text>
+<text class="sub" x="42" y="79">Review budget: 400 of 4,000 accounts · 232 SAR-labelled accounts</text>
+<line x1="244.0" y1="130" x2="244.0" y2="515" stroke="#e4e9ef"/>
+<text class="tick" x="244.0" y="540" text-anchor="middle">0%</text>
+<line x1="414.0" y1="130" x2="414.0" y2="515" stroke="#e4e9ef"/>
+<text class="tick" x="414.0" y="540" text-anchor="middle">25%</text>
+<line x1="584.0" y1="130" x2="584.0" y2="515" stroke="#e4e9ef"/>
+<text class="tick" x="584.0" y="540" text-anchor="middle">50%</text>
+<line x1="754.0" y1="130" x2="754.0" y2="515" stroke="#e4e9ef"/>
+<text class="tick" x="754.0" y="540" text-anchor="middle">75%</text>
+<line x1="924.0" y1="130" x2="924.0" y2="515" stroke="#e4e9ef"/>
+<text class="tick" x="924.0" y="540" text-anchor="middle">100%</text>
+<text class="model" x="228" y="168" text-anchor="end">XGB-Graph</text>
+<rect x="244" y="145" width="656.55" height="30" rx="4" fill="#295f9a"/>
+<text class="value" x="912.6" y="168">224/232 (96.6%)</text>
+<text class="model" x="228" y="234" text-anchor="end">XGB-Graph+Motif</text>
+<rect x="244" y="211" width="653.62" height="30" rx="4" fill="#295f9a"/>
+<text class="value" x="909.6" y="234">223/232 (96.1%)</text>
+<text class="model" x="228" y="300" text-anchor="end">XGB-Base</text>
+<rect x="244" y="277" width="592.07" height="30" rx="4" fill="#295f9a"/>
+<text class="value" x="848.1" y="300">202/232 (87.1%)</text>
+<text class="model" x="228" y="366" text-anchor="end">GINE-Full†</text>
+<rect x="244" y="343" width="586.21" height="30" rx="4" fill="#7655a3"/>
+<text class="value" x="842.2" y="366">200/232 (86.2%)</text>
+<text class="model" x="228" y="432" text-anchor="end">LR-Base†</text>
+<rect x="244" y="409" width="545.17" height="30" rx="4" fill="#8b9baa"/>
+<text class="value" x="801.2" y="432">186/232 (80.2%)</text>
+<text class="model" x="228" y="498" text-anchor="end">Rule-Based</text>
+<rect x="244" y="475" width="170.00" height="30" rx="4" fill="#8b9baa"/>
+<text class="value" x="426.0" y="498">58/232 (25.0%)</text>
+<text class="note" x="42" y="586">† LR/GINE: AP and classification metrics from saved JSON; Top-10% from full_recall_at_k.csv.</text>
+<text class="note" x="42" y="609">Rule-Based has a score tie at rank 400; stable account order gives 58 hits (possible tie range: 54–62).</text>
+</svg>

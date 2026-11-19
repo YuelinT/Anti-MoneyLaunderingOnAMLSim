@@ -34,7 +34,7 @@ We ran AMLSim **three separate times**, rather than splitting accounts from one 
 | Pattern transfer amount and duration | 100–1,000 and 5–20 simulated days |
 | Transaction type | `TRANSFER` |
 
-The exact simulator inputs are in [`configs/`](AML_experiment_code_package/configs/) and [`parameters/`](AML_experiment_code_package/parameters/). The exported account, transaction, alert, and SAR files are grouped by split under [`raw/`](AML_experiment_code_package/raw/). See the [package guide](AML_experiment_code_package/README_CN.md) for the complete directory map and run instructions.
+The exact simulator inputs are in [`configs/`](AML_experiment_code_package/configs/) and [`parameters/`](AML_experiment_code_package/parameters/). The transaction, alert, and SAR exports, together with privacy-reduced account tables, are grouped by split under [`raw/`](AML_experiment_code_package/raw/). See the [package guide](AML_experiment_code_package/README_CN.md) for the complete directory map and run instructions.
 
 | Split | Accounts | Transactions | SAR-labelled accounts | SAR rate |
 | --- | ---: | ---: | ---: | ---: |
@@ -42,7 +42,7 @@ The exact simulator inputs are in [`configs/`](AML_experiment_code_package/confi
 | Validation | 4,000 | 37,790 | 211 | 5.28% |
 | Test | 4,000 | 38,301 | 232 | 5.80% |
 
-After simulation, [`build_account_features.py`](AML_experiment_code_package/scripts/01_data_preparation/build_account_features.py) aggregates transactions into one row per account in [`model_input/`](AML_experiment_code_package/model_input/). [`validate_dataset.py`](AML_experiment_code_package/scripts/01_data_preparation/validate_dataset.py) checks account and label counts, transaction IDs, positive amounts, and valid sender and receiver IDs; the recorded checks passed. See the [`validation report`](AML_experiment_code_package/validation_report.json) and [`SHA256 manifest`](AML_experiment_code_package/SHA256SUMS.txt).
+For public release, direct identity fields were removed from the account tables; the retained `acct_id`, `type`, and `initial_deposit` columns are sufficient to rebuild the reported features. After simulation, [`build_account_features.py`](AML_experiment_code_package/scripts/01_data_preparation/build_account_features.py) aggregates transactions into one row per account in [`model_input/`](AML_experiment_code_package/model_input/). [`validate_dataset.py`](AML_experiment_code_package/scripts/01_data_preparation/validate_dataset.py) checks account and label counts, transaction IDs, positive amounts, and valid sender and receiver IDs; the recorded checks passed. See the [`validation report`](AML_experiment_code_package/validation_report.json) and [`SHA256 manifest`](AML_experiment_code_package/SHA256SUMS.txt).
 
 To rebuild and validate the **account feature tables from the saved raw exports**, run from `AML_experiment_code_package/`:
 

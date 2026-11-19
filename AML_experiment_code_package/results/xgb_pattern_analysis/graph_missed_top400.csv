@@ -1,0 +1,9 @@
+acct_id,pattern,base_score,base_rank,base_top400_detected,base_threshold_detected,graph_score,graph_rank,graph_top400_detected,graph_threshold_detected,top400_comparison,threshold_comparison
+117,fan_out,0.28368488,979,0,0,0.04133406,456,0,0,missed_by_both,missed_by_both
+403,fan_in,0.15371144,1464,0,0,0.016916508,648,0,0,missed_by_both,missed_by_both
+3483,fan_out,0.22475673,1271,0,0,0.0055337264,989,0,0,missed_by_both,missed_by_both
+3628,fan_out,0.20041831,1341,0,0,0.010193026,759,0,0,missed_by_both,missed_by_both
+3652,fan_out,0.17359082,1428,0,0,0.013845452,682,0,0,missed_by_both,missed_by_both
+3883,fan_out,0.47119445,298,1,0,0.023375489,572,0,0,base_only,missed_by_both
+3957,fan_out,0.38553175,576,0,0,0.033641957,494,0,0,missed_by_both,missed_by_both
+3980,fan_out,0.41384453,452,0,0,0.02968459,526,0,0,missed_by_both,missed_by_both

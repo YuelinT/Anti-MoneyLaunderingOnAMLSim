@@ -1,0 +1,100 @@
+{
+  "model": "GINE-Full (2-layer account-node classifier)",
+  "protocol": "17 fixed node features; retrospective 180-day account detection",
+  "split_seeds": {
+    "train": 42,
+    "validation": 43,
+    "test": 44
+  },
+  "model_seed": 42,
+  "device": "mps",
+  "versions": {
+    "torch": "2.14.1",
+    "torch_geometric": "2.8.1",
+    "scikit_learn": "1.9.1"
+  },
+  "node_features": [
+    "is_individual",
+    "initial_deposit",
+    "total_tx_count",
+    "incoming_tx_count",
+    "outgoing_tx_count",
+    "total_in_amount",
+    "total_out_amount",
+    "mean_in_amount",
+    "mean_out_amount",
+    "std_in_amount",
+    "std_out_amount",
+    "max_in_amount",
+    "max_out_amount",
+    "net_flow",
+    "active_days",
+    "activity_span_days",
+    "transactions_per_active_day"
+  ],
+  "edge_features": [
+    "train_standardized_log1p_amount",
+    "day_fraction_of_180",
+    "transaction_direction_plus_or_minus_one"
+  ],
+  "edge_construction": "original directed transaction plus reversed message edge with direction indicator",
+  "normalization": "node and log amount StandardScaler fitted on train only",
+  "class_weight": {
+    "positive_weight_from_train_only": 16.24137931034483
+  },
+  "hyperparameter_search": "one hardware-constrained configuration; validation AP selects epoch",
+  "hyperparameters": {
+    "layers": 2,
+    "hidden": 32,
+    "dropout": 0.25,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 300,
+    "patience": 20,
+    "optimizer": "Adam"
+  },
+  "best_epoch": 220,
+  "trained_epochs": 240,
+  "threshold_selection": "validation SAR F1 maximum; highest score threshold breaks ties",
+  "selected_validation_threshold": 0.9760556817054749,
+  "train": {
+    "accounts": 4000,
+    "sar_accounts": 232,
+    "transactions": 38206
+  },
+  "validation": {
+    "accounts": 4000,
+    "sar_accounts": 211,
+    "sar_rate": 0.05275,
+    "average_precision": 0.8304540547045516,
+    "sar_precision": 0.9731543624161074,
+    "sar_recall": 0.6872037914691943,
+    "sar_f1": 0.8055555555555556,
+    "recall_at_top_1_percent": 0.1895734597156398,
+    "top_1_percent_k": 40,
+    "top_1_percent_sar_found": 40,
+    "tp": 145,
+    "fp": 4,
+    "tn": 3785,
+    "fn": 66
+  },
+  "test": {
+    "accounts": 4000,
+    "sar_accounts": 232,
+    "sar_rate": 0.058,
+    "average_precision": 0.8851376099770055,
+    "sar_precision": 0.9732620320855615,
+    "sar_recall": 0.7844827586206896,
+    "sar_f1": 0.8687350835322196,
+    "recall_at_top_1_percent": 0.1724137931034483,
+    "top_1_percent_k": 40,
+    "top_1_percent_sar_found": 40,
+    "tp": 182,
+    "fp": 5,
+    "tn": 3763,
+    "fn": 50
+  },
+  "runtime_seconds": 2.457757957978174,
+  "process_rss_bytes_at_end": 553992192,
+  "mps_current_allocated_bytes_at_end": 7420160
+}

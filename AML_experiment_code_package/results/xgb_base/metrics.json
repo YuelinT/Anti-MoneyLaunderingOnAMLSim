@@ -1,0 +1,70 @@
+{
+  "model": "XGB-Base (account-level, no counterparty/graph features)",
+  "dataset": "/Users/lushengbo/Desktop/HKU/7611A/Groupwork/deliverables/amlsim_course_dataset_v1",
+  "features": [
+    "is_individual",
+    "initial_deposit",
+    "total_tx_count",
+    "incoming_tx_count",
+    "outgoing_tx_count",
+    "total_in_amount",
+    "total_out_amount",
+    "mean_in_amount",
+    "mean_out_amount",
+    "std_in_amount",
+    "std_out_amount",
+    "max_in_amount",
+    "max_out_amount",
+    "net_flow",
+    "active_days",
+    "activity_span_days",
+    "transactions_per_active_day"
+  ],
+  "label": "is_sar",
+  "hyperparameter_search": "none; one pre-specified baseline configuration",
+  "hyperparameters": {
+    "objective": "binary:logistic",
+    "eval_metric": "aucpr",
+    "tree_method": "hist",
+    "n_estimators": 500,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "min_child_weight": 2,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0,
+    "scale_pos_weight": 16.24137931034483,
+    "early_stopping_rounds": 30,
+    "random_state": 42,
+    "n_jobs": 4
+  },
+  "positive_weight": 16.24137931034483,
+  "best_iteration": 123,
+  "threshold_selection": "maximize SAR F1 on validation; highest threshold on ties",
+  "validation_f1_at_selected_threshold": 0.875,
+  "selected_threshold": 0.7026929259300232,
+  "test_metrics": {
+    "n_accounts": 4000,
+    "n_sar": 232,
+    "positive_rate": 0.058,
+    "average_precision": 0.8879418380758209,
+    "sar_precision": 0.9682539682539683,
+    "sar_recall": 0.7887931034482759,
+    "sar_f1": 0.8693586698337292,
+    "recall_at_top_1_percent": 0.1724137931034483,
+    "top_1_percent_k": 40,
+    "top_1_percent_sar_found": 40,
+    "confusion_matrix": {
+      "tp": 183,
+      "fp": 6,
+      "fn": 49,
+      "tn": 3762
+    }
+  },
+  "versions": {
+    "xgboost": "3.4.1",
+    "scikit_learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "2.2.3"
+  }
+}

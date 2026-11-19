@@ -1,0 +1,91 @@
+{
+  "model": "LR-Base (logistic regression)",
+  "protocol": "17 fixed base features; retrospective account classification over full 180 days",
+  "split_seeds": {
+    "train": 42,
+    "validation": 43,
+    "test": 44
+  },
+  "model_random_state": 42,
+  "scikit_learn_version": "1.6.1",
+  "training_accounts": 4000,
+  "training_sar_accounts": 232,
+  "features": [
+    "is_individual",
+    "initial_deposit",
+    "total_tx_count",
+    "incoming_tx_count",
+    "outgoing_tx_count",
+    "total_in_amount",
+    "total_out_amount",
+    "mean_in_amount",
+    "mean_out_amount",
+    "std_in_amount",
+    "std_out_amount",
+    "max_in_amount",
+    "max_out_amount",
+    "net_flow",
+    "active_days",
+    "activity_span_days",
+    "transactions_per_active_day"
+  ],
+  "preprocessing": "StandardScaler fitted on training graph only",
+  "class_weight": "balanced",
+  "solver": "lbfgs",
+  "max_iter": 2000,
+  "hyperparameter_selection": "select C with highest validation Average Precision; first candidate breaks ties",
+  "regularization_candidates": [
+    {
+      "C": 0.01,
+      "validation_average_precision": 0.6527107070978044
+    },
+    {
+      "C": 0.1,
+      "validation_average_precision": 0.7416324205089819
+    },
+    {
+      "C": 1.0,
+      "validation_average_precision": 0.7646414003970696
+    },
+    {
+      "C": 10.0,
+      "validation_average_precision": 0.7691805854648991
+    }
+  ],
+  "selected_C": 10.0,
+  "threshold_selection": "maximize validation SAR F1; highest threshold breaks ties",
+  "selected_validation_threshold": 0.8575020453051394,
+  "validation": {
+    "accounts": 4000,
+    "sar_accounts": 211,
+    "sar_rate": 0.05275,
+    "average_precision": 0.7691805854648991,
+    "sar_precision": 0.9139072847682119,
+    "sar_recall": 0.6540284360189573,
+    "sar_f1": 0.7624309392265194,
+    "recall_at_top_1_percent": 0.1895734597156398,
+    "top_1_percent_k": 40,
+    "top_1_percent_sar_found": 40,
+    "tp": 138,
+    "fp": 13,
+    "tn": 3776,
+    "fn": 73
+  },
+  "test": {
+    "accounts": 4000,
+    "sar_accounts": 232,
+    "sar_rate": 0.058,
+    "average_precision": 0.8014832304287479,
+    "sar_precision": 0.8797814207650273,
+    "sar_recall": 0.6939655172413793,
+    "sar_f1": 0.7759036144578313,
+    "recall_at_top_1_percent": 0.1724137931034483,
+    "top_1_percent_k": 40,
+    "top_1_percent_sar_found": 40,
+    "tp": 161,
+    "fp": 22,
+    "tn": 3746,
+    "fn": 71
+  },
+  "top_k_rule": "ceil(fraction * number of accounts); sort by descending risk score"
+}

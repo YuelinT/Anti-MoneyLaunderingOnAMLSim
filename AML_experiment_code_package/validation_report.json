@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "splits": [
+    {
+      "split": "train",
+      "accounts": 4000,
+      "transactions": 38206,
+      "positive_accounts": 232,
+      "positive_rate": 0.058,
+      "sar_transactions": 212,
+      "alert_patterns": 30,
+      "fan_in_members": 79,
+      "fan_out_members": 85,
+      "cycle_members": 68,
+      "start_date": "2017-01-01",
+      "end_date": "2017-06-29"
+    },
+    {
+      "split": "validation",
+      "accounts": 4000,
+      "transactions": 37790,
+      "positive_accounts": 211,
+      "positive_rate": 0.05275,
+      "sar_transactions": 191,
+      "alert_patterns": 30,
+      "fan_in_members": 73,
+      "fan_out_members": 74,
+      "cycle_members": 64,
+      "start_date": "2017-01-01",
+      "end_date": "2017-06-29"
+    },
+    {
+      "split": "test",
+      "accounts": 4000,
+      "transactions": 38301,
+      "positive_accounts": 232,
+      "positive_rate": 0.058,
+      "sar_transactions": 212,
+      "alert_patterns": 30,
+      "fan_in_members": 80,
+      "fan_out_members": 73,
+      "cycle_members": 79,
+      "start_date": "2017-01-01",
+      "end_date": "2017-06-29"
+    }
+  ]
+}

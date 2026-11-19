@@ -1,0 +1,56 @@
+{
+  "model": "M1 Rule-Based (transaction statistics only)",
+  "dataset": "/Users/lushengbo/Desktop/HKU/7611A/Groupwork/deliverables/amlsim_course_dataset_v1",
+  "rule_statistics": [
+    "max_in_7d",
+    "max_out_7d",
+    "max_matched_amount_14d",
+    "max_total_7d"
+  ],
+  "rule_limits": {
+    "max_in_7d": 3.0,
+    "max_out_7d": 3.0,
+    "max_matched_amount_14d": 1.0,
+    "max_total_7d": 4.0
+  },
+  "rule_limit_method": "90th percentile of unlabelled train accounts",
+  "risk_score": "number of fired rules + 0.1 * sum(min(statistic / train_limit, 2))",
+  "threshold_selection": "maximize SAR F1 on validation; highest threshold on ties",
+  "selected_threshold": 1.2916666666666667,
+  "validation_metrics": {
+    "n_accounts": 4000,
+    "n_sar": 211,
+    "average_precision": 0.12267633485495334,
+    "sar_precision": 0.18250377073906485,
+    "sar_recall": 0.5734597156398105,
+    "sar_f1": 0.2768878718535469,
+    "recall_at_top_1_percent": 0.014218009478672985,
+    "top_1_percent_k": 40,
+    "top_1_percent_sar_found": 3,
+    "accuracy": 0.842,
+    "confusion_matrix": {
+      "tp": 121,
+      "fp": 542,
+      "fn": 90,
+      "tn": 3247
+    }
+  },
+  "test_metrics": {
+    "n_accounts": 4000,
+    "n_sar": 232,
+    "average_precision": 0.13770223545431304,
+    "sar_precision": 0.1906116642958748,
+    "sar_recall": 0.5775862068965517,
+    "sar_f1": 0.28663101604278074,
+    "recall_at_top_1_percent": 0.03017241379310345,
+    "top_1_percent_k": 40,
+    "top_1_percent_sar_found": 7,
+    "accuracy": 0.83325,
+    "confusion_matrix": {
+      "tp": 134,
+      "fp": 569,
+      "fn": 98,
+      "tn": 3199
+    }
+  }
+}
